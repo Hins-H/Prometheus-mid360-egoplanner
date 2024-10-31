@@ -1,0 +1,9 @@
+[submodule "Modules/swarm_control"]
+	path = Modules/swarm_control
+	url = https://gitee.com/amovlab1/swarm_control.git
+[submodule "Modules/matlab_bridge"]
+	path = Modules/matlab_bridge
+	url = https://gitee.com/amovlab1/matlab_bridge.git
+[submodule "Modules/swarm_formation"]
+	path = Modules/swarm_formation
+	url = https://gitee.com/amovlab1/Swarm-Formation.git

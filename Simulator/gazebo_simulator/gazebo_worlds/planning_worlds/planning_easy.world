@@ -1,0 +1,368 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <!-- 动力学库 -->
+    <physics type='ode'>
+      <gravity>0 0 -9.8066</gravity>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>10</iters>
+          <sor>1.3</sor>
+          <use_dynamic_moi_rescaling>0</use_dynamic_moi_rescaling>
+        </solver>
+        <constraints>
+          <cfm>0.0</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>100</contact_max_correcting_vel>
+          <contact_surface_layer>0.001</contact_surface_layer>
+        </constraints>
+      </ode>
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>250</real_time_update_rate>
+      <magnetic_field>6.0e-6 2.3e-5 -4.2e-5</magnetic_field>
+    </physics>
+
+    <!-- 初始视角 -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>-11.0 0.0 7.0 0 0.57 0.0</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+    <!-- 光源 -->
+   <light type="directional" name="sun">
+      <cast_shadows>false</cast_shadows>
+      <pose>0 0 100 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.9 0.9 0.9 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>0.2 0.2 -0.9</direction>
+    </light>
+
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- 装饰 -->
+    <model name='texture'>
+      <static>true</static>
+      <!-- LOGO -->
+      <link name="prometheus_logo">
+        <pose frame=''> 0.0 0.0 0.0 0.0 0.0 0.0</pose>
+        <visual name="visual">
+            <cast_shadows>false</cast_shadows>
+            <geometry>
+              <box>
+                <size>30.0 30.0 0.01</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <uri>model://prometheus_texture/texture.material</uri>
+                <name>prometheus_logo2</name>
+              </script>
+            </material>
+        </visual>
+      </link>
+    </model>
+    <!-- 装饰结束 -->
+
+    <!-- 障碍物 -->
+    <model name='cylinder1'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>3.0 0.0 1.5 0 0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder7'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>7.0 3.0 1.5 0 0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder8'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>9.0 3.0 2 0 0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder9'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>11.0 3.0 2 0 0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder2'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>5.0 2.0 2 0 0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder3'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>5.0 -2.0 1.5 0 0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder4'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>-2.0 0.0 1.5 0 0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder5'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>-5.0 2.0 1.5 0 0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder6'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>-5.0 -2.0 1.5 0 0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder4_clone_0'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>-1.97992 4.00703 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder4_clone_1'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>-1.9564 -2.0159 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder4_clone_10'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>7.0065 -4.01751 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder4_clone_11'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>9.0654 0.083267 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder4_clone_12'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>9.0896 -2.91154 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder4_clone_13'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>3.01135 -2.03851 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder4_clone_14'>
+      <include>
+        <uri>model://obs_cylinder_large</uri>
+        <pose>2.02671 5.11168 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder4_clone_15'>
+      <include>
+        <uri>model://obs_cylinder_large</uri>
+        <pose>2.02671 5.11168 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder4_clone_16'>
+      <include>
+        <uri>model://obs_cylinder_large</uri>
+        <pose>1.547 -0.460893 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder4_clone_17'>
+      <include>
+        <uri>model://obs_cylinder_large</uri>
+        <pose>-1.00318 -3.92453 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder4_clone_18'>
+      <include>
+        <uri>model://obs_cylinder_large</uri>
+        <pose>-3.97554 -3.89536 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder4_clone_19'>
+      <include>
+        <uri>model://obs_cylinder_large</uri>
+        <pose>-4.01198 -0.900726 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder4_clone_20'>
+      <include>
+        <uri>model://obs_cylinder_large</uri>
+        <pose>-3.99798 4.28559 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder4_clone_3'>
+      <include>
+        <uri>model://obs_cylinder_large</uri>
+        <pose>-0.02147 -2 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder4_clone_4'>
+      <include>
+        <uri>model://obs_cylinder_large</uri>
+        <pose>1.91528 1.99383 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder4_clone_5'>
+      <include>
+        <uri>model://obs_cylinder_large</uri>
+        <pose>3.98158 3.97316 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder3_clone'>
+      <include>
+        <uri>model://obs_cylinder_large</uri>
+        <pose>6.07287 0.13588 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder3_clone_0'>
+      <include>
+        <uri>model://obs_cylinder_large</uri>
+        <pose>4.15022 -4.06495 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder3_clone_1'>
+      <include>
+        <uri>model://obs_cylinder_large</uri>
+        <pose>8.06445 -0.95966 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder3_clone_10'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>3.03343 -6.9094 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder3_clone_11'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>-0.97445 -5.80554 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder3_clone_12'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>-3.04238 -6.01581 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder3_clone_13'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>-4.97933 -5.0259 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder3_clone_14'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>5.96757 5.00455 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder3_clone_2'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>7.01908 -1.94151 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder3_clone_3'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>2.02255 -4.00149 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder3_clone_4'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>0.17873 2.05724 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder3_clone_5'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>-1.85729 2.09778 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder3_clone_6'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>-3.98585 1.05791 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder3_clone_7'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>6.05648 -5.87728 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+
+    <model name='cylinder3_clone_8'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>4.12375 -5.90525 1.5 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name='cylinder3_clone_9'>
+      <include>
+        <uri>model://obs_cylinder_small</uri>
+        <pose>1.03519 -5.79704 1.5 0 -0 0</pose>
+      </include>
+    </model>
+    </world>
+</sdf>

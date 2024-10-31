@@ -1,0 +1,35 @@
+digraph G {
+"map" -> "map_ned"[label="Broadcaster: /uav1/mavros\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 324.984 sec old)\nBuffer length: 0.000 sec\n"];
+"odom" -> "odom_ned"[label="Broadcaster: /uav1/mavros\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 324.984 sec old)\nBuffer length: 0.000 sec\n"];
+"base_link" -> "base_link_frd"[label="Broadcaster: /uav1/mavros\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 324.984 sec old)\nBuffer length: 0.000 sec\n"];
+"p450_mid360_0::livox_base" -> "livox_base"[label="Broadcaster: /gazebo\nAverage rate: 10.213 Hz\nMost recent transform: 324.888 ( 0.096 sec old)\nBuffer length: 4.504 sec\n"];
+"world" -> "uav1/base_link"[label="Broadcaster: /uav_control_main_1\nAverage rate: 20.229 Hz\nMost recent transform: 324.944 ( 0.040 sec old)\nBuffer length: 4.548 sec\n"];
+"uav1/base_link" -> "uav1/lidar_link"[label="Broadcaster: /uav_control_main_1\nAverage rate: 20.229 Hz\nMost recent transform: 324.944 ( 0.040 sec old)\nBuffer length: 4.548 sec\n"];
+"uav1/base_link" -> "uav1/camera_link"[label="Broadcaster: /uav_control_main_1\nAverage rate: 20.229 Hz\nMost recent transform: 324.944 ( 0.040 sec old)\nBuffer length: 4.548 sec\n"];
+"map" -> "map_base_link"[label="Broadcaster: /uav1/mavros\nAverage rate: 50.218 Hz\nMost recent transform: 324.980 ( 0.004 sec old)\nBuffer length: 4.580 sec\n"];
+"camera_init" -> "body"[label="Broadcaster: /laserMapping\nAverage rate: 10.213 Hz\nMost recent transform: 324.942 ( 0.042 sec old)\nBuffer length: 4.504 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 324.984"[ shape=plaintext ] ;
+ }->"map";
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 324.984"[ shape=plaintext ] ;
+ }->"odom";
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 324.984"[ shape=plaintext ] ;
+ }->"base_link";
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 324.984"[ shape=plaintext ] ;
+ }->"p450_mid360_0::livox_base";
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 324.984"[ shape=plaintext ] ;
+ }->"world";
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 324.984"[ shape=plaintext ] ;
+ }->"camera_init";
+}

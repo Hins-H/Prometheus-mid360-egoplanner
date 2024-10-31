@@ -1,0 +1,46 @@
+<!-- 
+  Example launch file for octomap_server mapping: 
+  Listens to incoming PointCloud2 data and incrementally builds an octomap. 
+  The data is sent out in different representations. 
+
+  Copy this file into your workspace and adjust as needed, see
+  www.ros.org/wiki/octomap_server for details  
+-->
+<launch>
+	<arg name="uav_id" default="1"/>
+	<node pkg="octomap_server" type="octomap_server_node" name="octomap_server_$(arg uav_id)" output="screen">
+	  <remap from="/octomap_point_cloud_centers" to="/uav$(arg uav_id)/octomap_point_cloud_centers"/>
+      <remap from="/octomap_full" to="/uav$(arg uav_id)/octomap_full"/>
+      <remap from="/octomap_binary" to="/uav$(arg uav_id)/octomap_binary"/>
+      		
+      <!-- 地图分辨率 -->
+      <param name="resolution" value="0.1" />
+      <!-- 发布地图的坐标系 -->
+      <param name="frame_id" type="string" value="world" />
+      <!-- 传感器最大感知范围 (speedup!) -->
+      <param name="sensor_model/max_range" value="10" />
+      
+      <param name="pointcloud_max_z" value="5" />
+      <param name="pointcloud_min_z" value="0.05" />
+
+      <!-- 局部点云话题输入 -->
+      <remap from="cloud_in" to="/cloud_registered" />
+      <!--<remap from="cloud_in" to="/livox/lidar" />-->
+      <!-- 机器人坐标系 base_link，滤除地面需要该 frame   
+      <param name = "base_frame_id" type = "string" value = "uav1/base_link" /> -->
+        	
+      <!-- filter ground plane, distance value should be big! 项目并不需要滤除地面 
+      <param name = "filter_ground" type = "bool" value = "true" />
+      <param name = "ground_filter/distance" type = "double" value = "0.5" />
+      <param name = "ground_filter/angle" type = "double" value = "0.7853" />
+      <param name = "ground_filter/plane_distance" type = "double" value = "0.5" /> -->
+      <!-- 增加了半径滤波器 
+      <param name = "outrem_radius" value = "1.0" />
+      <param name = "outrem_neighbors" value = "10" /> -->
+      
+      <!-- when building map, set to false to speed up!!! -->
+      <param name = "latch" value = "false" />  
+
+      
+      </node>
+</launch>
