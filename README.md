@@ -4,4 +4,4 @@
 - Prometheus项目中对ego-planner进行了修改，生成的三维膨胀地图是二维膨胀地图在竖直方向上的延伸，不是真实的障碍物膨胀地图，故将Prometheus中的ego-planner和原版ego-planner进行了融合，最后能生成实际的三维地图。
 - 修改了Fast_LIO的代码，能够在参数文件中设定其发布的两个坐标系（原版将坐标系固定为camera_init和body）。
 
-<img src="https://pic.imgdb.cn/item/6722f8e1d29ded1a8cc1502c.png" alt="img"/>
+<img src="https://pic.imgdb.cn/item/6722f997d29ded1a8cc27882.png" alt="img"/>
